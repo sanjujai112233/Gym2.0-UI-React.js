@@ -1,0 +1,18 @@
+.light-theme {
+    min-height: 100vh;
+    padding: 40px;
+    background: white;
+    color: black;
+}
+
+.dark-theme {
+    min-height: 100vh;
+    padding: 40px;
+    background: #222;
+    color: white;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}

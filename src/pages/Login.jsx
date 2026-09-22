@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "../components/button";
 import Input from "../components/Input";
 import "../styles/auth.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import styles from "./Login.module.css"
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -9,9 +11,12 @@ function Login() {
 
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
+
+
 
         setEmailError("");
         setPasswordError("");
@@ -32,6 +37,11 @@ function Login() {
             return;
         }
 
+
+        localStorage.setItem("isLoggedIn", "true");
+        navigate("/dashboard");
+
+
         console.log(email);
         console.log(password);
     }
@@ -40,7 +50,7 @@ function Login() {
         <div className="authpage">
             <div className="authcard">
 
-                <h1>Login</h1>
+                <h2 className={styles.title}>Gym Management Login</h2>
 
                 <form onSubmit={handleSubmit}>
 
@@ -96,3 +106,7 @@ function Login() {
 }
 
 export default Login;
+
+
+
+
